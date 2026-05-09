@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSM Servis Veturash</title>
+  <title>RSM Autoservice</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -16,7 +17,10 @@
       box-sizing: border-box;
     }
 
-    html {
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
@@ -25,7 +29,6 @@
       background: #070707;
       color: #fff;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     a {
@@ -38,14 +41,8 @@
       display: block;
     }
 
-    .main-logo {
-      width: 170px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .footer-logo {
-      width: 120px;
+    iframe {
+      max-width: 100%;
     }
 
     :root {
@@ -54,10 +51,7 @@
       --m-blue: #0066b3;
       --m-light-blue: #00a3e0;
       --m-dark-blue: #003c7c;
-      --dark: #070707;
-      --card: #151515;
       --muted: #bdbdbd;
-      --white: #ffffff;
     }
 
     .page {
@@ -67,51 +61,48 @@
         url("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
     }
 
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
     .navbar {
       width: min(1180px, 92%);
       margin: 0 auto;
-      padding: 22px 0;
+      padding: 18px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
-      z-index: 10;
+      z-index: 20;
     }
 
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 900;
-      letter-spacing: -3px;
-      font-style: italic;
-      line-height: 1;
     }
 
-    .logo-r {
-      color: var(--red);
+    .main-logo {
+      width: 150px;
+      height: auto;
+      object-fit: contain;
     }
 
-    .logo-s {
-      color: #f5f5f5;
-      text-shadow: 2px 0 0 var(--s-red);
+    .logo-right-mobile {
+      display: none;
     }
 
-    .logo-m {
-      color: var(--m-blue);
-      position: relative;
-      padding-left: 2px;
-    }
-
-    .logo-m::after {
-      content: "";
-      display: inline-block;
-      width: 28px;
-      height: 18px;
-      margin-left: 5px;
-      transform: skew(-18deg);
-      background: linear-gradient(90deg, var(--m-light-blue) 0 33%, var(--m-dark-blue) 33% 66%, var(--red) 66% 100%);
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 10px;
+      background: rgba(255,255,255,.07);
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
     }
 
     .nav-links {
@@ -156,73 +147,7 @@
       background: #ff1b14;
     }
 
-    .menu-toggle {
-  display: none;
-  width: 46px;
-  height: 46px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 10px;
-  background: rgba(255,255,255,.07);
-  color: #fff;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-@media (max-width: 900px) {
-
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
- 
-
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 84px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 16px;
-    border-radius: 16px;
-    background: rgba(6,6,6,.96);
-    border: 1px solid rgba(255,255,255,.12);
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .nav-links.active {
-    display: grid;
-  }
-
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 84px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 16px;
-    border-radius: 16px;
-    background: rgba(6,6,6,.96);
-    border: 1px solid rgba(255,255,255,.12);
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .nav-links.active {
-    display: grid;
-  }
-}
-
+    /* HERO */
     .hero {
       width: min(1180px, 92%);
       margin: 0 auto;
@@ -236,17 +161,14 @@
       padding-bottom: 60px;
     }
 
-    .hero h1 {
-      font-size: clamp(64px, 11vw, 122px);
-      line-height: .86;
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: -6px;
-      margin-bottom: 20px;
+    .hero-logo {
+      width: 320px;
+      max-width: 100%;
+      margin-bottom: 22px;
     }
 
     .hero h2 {
-      font-size: clamp(24px, 3vw, 30px);
+      font-size: clamp(24px, 3vw, 34px);
       text-transform: uppercase;
       font-weight: 900;
       margin-bottom: 18px;
@@ -261,11 +183,6 @@
 
     section {
       padding: clamp(58px, 8vw, 95px) 0;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: 0 auto;
     }
 
     .section-title {
@@ -288,6 +205,7 @@
       text-transform: uppercase;
     }
 
+    /* SERVICES */
     .services {
       background: #090909;
     }
@@ -328,6 +246,7 @@
       color: var(--muted);
     }
 
+    /* LINES */
     .lines {
       background: radial-gradient(circle at top, #171717, #070707 58%);
     }
@@ -364,16 +283,10 @@
       z-index: -1;
     }
 
-    /*
-      Ndërro fotot këtu nëse do foto të tuat:
-      images/volkswagen-r-line.jpg
-      images/audi-s-line.jpg
-      images/bmw-m-packet.jpg
-    */
     .line-card.rline {
       background-image:
         linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.90)),
-        url(/img/golf7.jpg);
+        url("img/golf7.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -383,7 +296,7 @@
       background: url("https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80") center/cover;
     }
 
-    .line-card.mpacket {
+    .line-card.mperformance {
       background: url("https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&w=900&q=80") center/cover;
     }
 
@@ -448,6 +361,7 @@
       font-size: 14px;
     }
 
+    /* ABOUT */
     .about {
       background: #080808;
     }
@@ -506,6 +420,7 @@
       box-shadow: 0 25px 80px rgba(0,0,0,.45);
     }
 
+    /* CONTACT */
     .contact {
       background:
         linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.84)),
@@ -527,18 +442,8 @@
       min-height: 210px;
     }
 
-    .contact-box .logo {
-      font-size: 26px;
-      letter-spacing: -1px;
-      transform: none;
-      width: fit-content;
-      max-width: 130px;
-    }
-
-    .contact-box .logo-m::after {
-      width: 18px;
-      height: 12px;
-      margin-left: 3px;
+    .footer-logo {
+      width: 120px;
     }
 
     .footer-brand-text {
@@ -546,6 +451,7 @@
       max-width: 340px;
       font-size: 16px;
       line-height: 1.55;
+      color: #d7d7d7;
     }
 
     .contact h3 {
@@ -605,6 +511,7 @@
       font-size: 13px;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 1100px) {
       .service-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -617,23 +524,61 @@
 
     @media (max-width: 900px) {
       .navbar {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 16px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
       }
 
-      
+      .main-logo {
+        width: 86px;
+      }
+
+      .navbar .logo:first-child {
+        justify-self: start;
+      }
+
+      .logo-right-mobile {
+        display: inline-flex;
+        justify-self: end;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 4%;
+        right: 4%;
+        width: auto;
+        padding: 15px;
+        background: rgba(0,0,0,.96);
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,.12);
+        box-shadow: 0 24px 70px rgba(0,0,0,.55);
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .nav-links.active {
+        display: grid;
+      }
 
       .nav-links a {
         background: rgba(255,255,255,.06);
         border: 1px solid rgba(255,255,255,.08);
-        padding: 12px;
+        padding: 14px;
         border-radius: 10px;
         text-align: center;
       }
 
       .nav-links .btn {
-        grid-column: 1 / -1;
+        width: 100%;
       }
 
       .hero {
@@ -658,10 +603,6 @@
         min-height: 390px;
       }
 
-      .hero h1 {
-        letter-spacing: -3px;
-      }
-
       .hero-content {
         padding-bottom: 20px;
       }
@@ -672,20 +613,12 @@
     }
 
     @media (max-width: 480px) {
-      .nav-links {
-        grid-template-columns: 1fr;
-      }
-
       .page {
         background-position: 62% center;
       }
 
       .hero {
         min-height: 620px;
-      }
-
-      .hero h1 {
-        font-size: 64px;
       }
 
       .hero h2 {
@@ -701,52 +634,36 @@
       .contact-box {
         padding: 24px 20px;
       }
-
-      .logo-m::after {
-        width: 22px;
-        height: 15px;
-      }
     }
   </style>
 </head>
+
 <body>
-  <script>
-    window.onload = () => {
-      window.scrollTo(0, 0);
-    };
-  </script>
   <main class="page" id="krye">
     <nav class="navbar">
-      <a href="#krye" class="logo" aria-label="RSM Servis">
+      <a href="#krye" class="logo" aria-label="RSM Autoservice">
         <img src="img/logo.png" alt="RSM Logo" class="main-logo">
       </a>
-<div class="nav-links" id="navLinks">
-  <a href="#krye">Home</a>
-  <a href="#sherbimet">Services</a>
-  <a href="#linjat">Our Lines</a>
-  <a href="#rreth">About Us</a>
-  <a href="tel:+38349689814" class="btn">Kontakto</a>
-</div>
-     
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a href="#krye" class="logo logo-right-mobile" aria-label="RSM Autoservice">
+        <img src="img/logo.png" alt="RSM Logo" class="main-logo">
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#krye">Home</a>
+        <a href="#sherbimet">Services</a>
+        <a href="#linjat">R • S • M Series</a>
+        <a href="#rreth">About Us</a>
+        <a href="#kontakt" class="btn">Contact</a>
+      </div>
     </nav>
-    <button class="menu-toggle" id="menuToggle">☰</button>
 
-<script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuToggle.textContent =
-      navLinks.classList.contains("active") ? "×" : "☰";
-  });
-</script>
     <section class="hero">
       <div class="hero-content">
-        <h1>
-          <img src="img/logo.png" alt="RSM Logo" style="width:320px; max-width:100%;">
-        </h1>
-        <h2>R Line · S Line · M Performanc</h2>
+        <img src="img/logo.png" alt="RSM Logo" class="hero-logo">
+        <h2>R Line · S Line · M Performance</h2>
         <p>Servis profesional për vetura premium. Mirëmbajtje, diagnostikë, klimë dhe kujdes i saktë për çdo detaj.</p>
         <a class="btn" href="tel:+38349689814">Thirr tani</a>
       </div>
@@ -798,7 +715,7 @@
       <div class="line-grid">
         <div class="line-card rline">
           <div class="line-content">
-            <div class="line-badge badge-r">R line</div>
+            <div class="line-badge badge-r">R Line</div>
             <h3>Volkswagen R Line</h3>
             <p>Sportivitet dhe pamje agresive për modelet Volkswagen.</p>
           </div>
@@ -806,18 +723,18 @@
 
         <div class="line-card sline">
           <div class="line-content">
-            <div class="line-badge badge-s">S line</div>
+            <div class="line-badge badge-s">S Line</div>
             <h3>Audi S Line</h3>
             <p>Stil premium, detaje sportive dhe përkujdesje e pastër.</p>
           </div>
         </div>
 
-        <div class="line-card mpacket">
+        <div class="line-card mperformance">
           <div class="line-content">
             <div class="line-badge badge-m">
               <span class="m-stripes"><span class="m1"></span><span class="m2"></span><span class="m3"></span></span>M
             </div>
-            <h3>BMW M Performanc</h3>
+            <h3>BMW M Performance</h3>
             <p>Performancë, karakter dhe pamje që nuk fshihet në rrugë.</p>
           </div>
         </div>
@@ -847,41 +764,61 @@
   <section class="contact" id="kontakt">
     <div class="container contact-wrap">
       <div class="contact-box">
-        <a href="#krye" class="logo" aria-label="RSM Servis">
-          <img src="img/logo.png" alt="RSM Logo" class="main-logo footer-logo">
+        <a href="#krye" class="logo" aria-label="RSM Autoservice">
+          <img src="img/logo.png" alt="RSM Logo" class="footer-logo">
         </a>
-        <p class="footer-brand-text">Servis për vetura premium, R Line, S Line dhe M Performanc.</p>
+        <p class="footer-brand-text">Servis për vetura premium, R Line, S Line dhe M Performance.</p>
       </div>
 
       <div class="contact-box">
         <h3>Kontakt</h3>
-        <!-- Ndërro numrin këtu. Mos lër numër shembull në faqe reale. -->
-        <a href="tel:+38344123456">📞 +383 49 689 814</a>
-        <!-- <a href="mailto:info@rsm-ks.com">✉️ info@rsm-ks.com</a> -->
+        <a href="tel:+38349689814">📞 +383 49 689 814</a>
         <p>📍 Rruga e Kforit (Tranziti)</p>
         <p>🕘 Hënë - Shtunë · 08:00 - 17:00</p>
 
         <h3 style="margin-top:24px;">Rrjetet sociale</h3>
         <div class="socials">
-          <!-- Vendosi URL-të e tua reale te href="" -->
-          <a href="https://www.facebook.com/share/14biWupwtrV/?mibextid=wwXIfr">Facebook</a>
+          <a href="https://www.facebook.com/share/14biWupwtrV/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/auto_service_rsm/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.tiktok.com/@rsm_auto_service/" target="_blank" rel="noopener">TikTok</a>
         </div>
       </div>
 
       <div class="map-box">
-        <!--
-          KËTU E VENDOS GOOGLE MAPS IFRAME:
-          Google Maps → kërko biznesin/adresën → Share → Embed a map → Copy HTML → zëvendëso iframe më poshtë.
-        -->
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.749994678747!2d20.315779835690297!3d42.64545972740255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1352fdf52f127cbd%3A0xe6ef7c45c0ebbf9b!2sAuto%20Service%20RSM!5e0!3m2!1sen!2s!4v1778337558136!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.749994678747!2d20.315779835690297!3d42.64545972740255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1352fdf52f127cbd%3A0xe6ef7c45c0ebbf9b!2sAuto%20Service%20RSM!5e0!3m2!1sen!2s!4v1778337558136!5m2!1sen!2s"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokacioni RSM">
+        </iframe>
       </div>
     </div>
   </section>
 
   <footer>
-  © 2026 RSM Autoservice. Designed & Developed by E.D
-</footer>
+    © 2026 RSM Autoservice. Designed & Developed by E.D.
+  </footer>
+
+  <script>
+    window.onload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.textContent = navLinks.classList.contains("active") ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
 </body>
 </html>
