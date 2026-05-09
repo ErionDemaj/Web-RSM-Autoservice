@@ -156,16 +156,72 @@
       background: #ff1b14;
     }
 
-    .menu-btn {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 10px;
-      background: rgba(255,255,255,.05);
-      color: #fff;
-      font-size: 24px;
-    }
+    .menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 10px;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(6,6,6,.96);
+    border: 1px solid rgba(255,255,255,.12);
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .nav-links.active {
+    display: grid;
+  }
+
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(6,6,6,.96);
+    border: 1px solid rgba(255,255,255,.12);
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .nav-links.active {
+    display: grid;
+  }
+}
 
     .hero {
       width: min(1180px, 92%);
@@ -566,12 +622,7 @@
         gap: 16px;
       }
 
-      .nav-links {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
+      
 
       .nav-links a {
         background: rgba(255,255,255,.06);
@@ -669,16 +720,27 @@
       <a href="#krye" class="logo" aria-label="RSM Servis">
         <img src="img/logo.png" alt="RSM Logo" class="main-logo">
       </a>
-
-      <div class="nav-links">
-        <a href="#krye">Home</a>
-        <a href="#sherbimet">About</a>
-        <a href="#linjat">Our Lines</a>
-        <a href="#rreth">Contact</a>
-        <a href="tel:+38349689814" class="btn">Kontakto</a>
-      </div>
+<div class="nav-links" id="navLinks">
+  <a href="#krye">Home</a>
+  <a href="#sherbimet">Services</a>
+  <a href="#linjat">Our Lines</a>
+  <a href="#rreth">About Us</a>
+  <a href="tel:+38349689814" class="btn">Kontakto</a>
+</div>
+     
     </nav>
+    <button class="menu-toggle" id="menuToggle">☰</button>
 
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.textContent =
+      navLinks.classList.contains("active") ? "×" : "☰";
+  });
+</script>
     <section class="hero">
       <div class="hero-content">
         <h1>
