@@ -162,9 +162,7 @@
     }
 
     .hero-logo {
-      width: 320px;
-      max-width: 100%;
-      margin-bottom: 22px;
+      display: none;
     }
 
     .hero h2 {
@@ -801,9 +799,15 @@
   </footer>
 
   <script>
-    window.onload = () => {
+     window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  window.onload = function () {
+    setTimeout(() => {
       window.scrollTo(0, 0);
-    };
+    }, 10);
+  };
 
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
